@@ -14,9 +14,16 @@ body.correct{
 }
 h1, h3 {
     font-family: 'Lato', sans-serif;
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;
     }
+#questionContainer{
+    font-family: 'Lato', sans-serif;
+    font-size: xx-large;
+    font-style: normal;
+    font-weight: normal;
+    margin-top: 50px;
+}
 #answerBtns{
     display: grid;
     grid-gap: 10px;
