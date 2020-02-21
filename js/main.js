@@ -118,11 +118,20 @@ let questionsElement = document.getElementById("questions");
 let answerBtnsElement = document.getElementById("answerBtns");
 let nextBtn = document.getElementById("nextBtn");
 
+// Sound variables
+let correctSound;
+let wrongSound;
+let bgSound;
+
+
+let mySound = document.getElementById("sound");      
+document.body.addEventListener("load", function(){ mySound.play(); }); 
+
 // Starts game
 window.onload = startGame;
 
 function startGame(){
-    
+
     // Assign clicklistners
     // Next button
     nextBtn.addEventListener("click", nextQuestion);
@@ -215,5 +224,6 @@ function nextQuestion(){
     answerBtnsElement.children[2].style.backgroundColor = "#98b0c5";
     answerBtnsElement.children[3].style.backgroundColor = "#98b0c5";
 }
+
 
 
