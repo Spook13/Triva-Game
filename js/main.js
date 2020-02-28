@@ -35,7 +35,7 @@ let questions = [
 
     // queestion 4
     { 
-        question: "Which frames are considered a support frame?",
+        question: "Which frame is considered a support frame?",
         answer: [
             { text: "Ember", correct: false},
             { text: "Saryn", correct: false},
@@ -57,7 +57,7 @@ let questions = [
 
     // queestion 6
     { 
-        question: "Which frame can summon dead enemies that they have killed previously?",
+        question: "Which frame can summon dead enemies that they have previously killed?",
         answer: [
             { text: "Gauss", correct: false},
             { text: "Nekros", correct: true},
@@ -110,20 +110,32 @@ let questions = [
         ]
     }
 ];
-// Other variables
+// Shuffle variables
 let shuffleQuestions;
+
+// Question variables
 let currentQuestionsIndex;
-let questionsContainerElement = document.getElementById("questionContainer");
 let questionsElement = document.getElementById("questions");
+
+// Container variables
+let questionsContainerElement = document.getElementById("questionContainer");
+let resultsContainer = document.getElementById('results');
+
+// Button variables
 let answerBtnsElement = document.getElementById("answerBtns");
 let nextBtn = document.getElementById("nextBtn");
 
+// Score variables
+var score = 0;
+
 // Sound variables
-let correctSound;
-let wrongSound;
+// var audio = new Audio('audio_file.mp3');
+let correctSound = new Audio("sounds/correct.mp3");
+let wrongSound = new Audio("sounds/wrong.wav");
 let bgSound;
 
-
+// Background music
+// Blocked in most browsers by default
 let mySound = document.getElementById("sound");      
 document.body.addEventListener("load", function(){ mySound.play(); }); 
 
@@ -198,19 +210,27 @@ function checkAnswer(theButtonThatWasClicked){
     }
     
     // Checks answer user selected
-    if(theButtonThatWasClicked == correctAnswer){
+        if(theButtonThatWasClicked == correctAnswer){
         // Highlights button green if correct
-        answerBtnsElement.children[theButtonThatWasClicked].style.backgroundColor = "green";    
-    }else{ 
+            answerBtnsElement.children[theButtonThatWasClicked].style.backgroundColor = "green";
+            // Plays sound if correct answer is chosen
+            correctSound.play();
+            // Adds to score if correct answer is chosen
+            score++;  
+        }else{ 
         // Highlights button red if wrong
-        answerBtnsElement.children[theButtonThatWasClicked].style.backgroundColor = "red";
-        // And then highlights the right answer green
-        answerBtnsElement.children[correctAnswer].style.backgroundColor = "green";
-    }
+            answerBtnsElement.children[theButtonThatWasClicked].style.backgroundColor = "red";
+            // And then highlights the right answer green
+            answerBtnsElement.children[correctAnswer].style.backgroundColor = "green";
+            // Plays sound if wrong answer is chosen
+            wrongSound.play();
+        }
+        // Showing score
+        document.getElementById("results").innerText = "You got " + score + "/" + questions.length;
 }
 // Next button function
 function nextQuestion(){
-    // The currect question
+    // The currect question 
     var currentQuestion = currentQuestionsIndex;
     
     // Calling the next queestion

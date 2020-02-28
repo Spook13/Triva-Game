@@ -23,7 +23,7 @@
 <body class="correct">
 
     <audio id="sound">   
-        <source src="sounds/bg.mp3"/>   
+        <source type="audio/mpeg" src="sounds/bg.mp3"/>   
     </audio> 
 
     <!-- Header -->
@@ -35,30 +35,38 @@
 
     <!-- Content -->
     <div class="container">
-        <!-- Question Container-->
-        <div id="questionContainer" class="hide">
-            <!-- Question -->
-            <div id="questions">Question</div>
-            <!-- End of Question -->
+        <div class="row">
+            
+            <!-- Question Container-->
+            <div class="col-lg-8 col-sm-12">
+                <div id="questionContainer" class="hide">
+                <!-- Question -->
+                    <div id="questions">Question</div>
+                    <!-- End of Question -->
                         
-            <!-- Answers -->
-            <div id="answerBtns">
-                <button class="btn btn-outline-dark"> Answer 1 </button>
-                <button class="btn btn-outline-dark"> Answer 2 </button>
-                <button class="btn btn-outline-dark"> Answer 3 </button>
-                <button class="btn btn-outline-dark"> Answer 4 </button>
-            </div>
-            <!-- End of Answers -->
+                    <!-- Answers -->
+                    <div id="answerBtns">
+                        <button class="btn btn-outline-dark"> Answer 1 </button>
+                        <button class="btn btn-outline-dark"> Answer 2 </button>
+                        <button class="btn btn-outline-dark"> Answer 3 </button>
+                        <button class="btn btn-outline-dark"> Answer 4 </button>
+                    </div>
+                    <!-- End of Answers -->
 
-        </div> 
-        <!-- End of Question Container -->
+                </div> 
         
-        <!-- Next -->
-        <div class="controls">
-            <button id="nextBtn" class="nextBtn hide btn btn-outline-dark"> Next </button>
-        </div>
-        <!-- End of Next -->             
+                <!-- Next Button -->
+                <div class="controls">
+                    <button id="nextBtn" class="nextBtn hide btn btn-outline-dark"> Next </button>
+                </div>
+                <!-- End of Next --> 
+            </div> 
+            <!-- End of Question Container -->
 
+            <!-- Results Container -->
+            <div class="col-lg-4 col-sm-12" id="results"> </div> 
+            <!-- End of Results Container -->          
+        </div>
     </div>
     <!-- End of Container -->   
 
